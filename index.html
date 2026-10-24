@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Business Mindset</title>
+<meta name="description" content="Business Mindset - Learn, Build and Grow.">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #080808;
+    color: #f5f5f5;
+    line-height: 1.6;
+}
+
+header {
+    width: 100%;
+    padding: 18px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0d0d0d;
+    border-bottom: 1px solid #28200d;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    color: #d4af37;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-left: auto;
+}
+
+nav a {
+    text-decoration: none;
+    color: #d4af37;
+    font-size: 14px;
+    padding: 8px 14px;
+    border: 1px solid #d4af37;
+    border-radius: 6px;
+    background: transparent;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background: #17130a;
+    color: #ffe28a;
+    border-color: #ffe28a;
+}
+
+.hero {
+    min-height: 85vh;
+    padding: 80px 20px 65px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(
+        circle at top,
+        #29200b 0%,
+        #11100b 30%,
+        #080808 72%
+    );
+}
+
+.tag {
+    display: inline-block;
+    padding: 7px 16px;
+    border: 1px solid #705a1b;
+    border-radius: 30px;
+    color: #d4af37;
+    background: #17130a;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.hero h1 {
+    max-width: 850px;
+    margin: 25px auto 18px;
+    font-size: clamp(35px, 7vw, 65px);
+    line-height: 1.12;
+    font-weight: 800;
+}
+
+.hero h1 span {
+    color: #d4af37;
+}
+
+.hero p {
+    max-width: 600px;
+    margin: 0 auto 28px;
+    color: #b5b5b5;
+    font-size: 16px;
+}
+
+.btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #f3d675, #c59a25);
+    color: #080808;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.btn:hover {
+    background: #ffe28a;
+    transform: translateY(-2px);
+}
+
+.powered {
+    margin-top: 14px;
+    color: #d4af37;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+section {
+    padding: 60px 6%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.section-title span {
+    color: #d4af37;
+}
+
+.section-sub {
+    text-align: center;
+    color: #999999;
+    margin-bottom: 35px;
+    font-size: 14px;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 20px;
+}
+
+.feature {
+    background: #111111;
+    border: 1px solid #292929;
+    border-radius: 12px;
+    padding: 25px;
+    transition: 0.3s;
+}
+
+.feature:hover {
+    border-color: #b9972e;
+    transform: translateY(-4px);
+}
+
+.feature h3 {
+    color: #d4af37;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.feature p {
+    color: #b1b1b1;
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 14px 4%;
+        gap: 8px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    nav {
+        gap: 6px;
+    }
+
+    nav a {
+        font-size: 12px;
+        padding: 7px 9px;
+    }
+
+    .hero {
+        min-height: 75vh;
+        padding: 65px 18px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    section {
+        padding: 45px 5%;
+    }
+
+    .section-title {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 360px) {
+    header {
+        flex-wrap: wrap;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Business Mindset</div>
+
+    <nav>
+        <a href="signup.html">Sign Up</a>
+        <a href="login.html">Login</a>
+    </nav>
+</header>
+
+<main>
+
+    <section class="hero" id="home">
+
+        <span class="tag">LEARN • BUILD • GROW</span>
+
+        <h1>
+            Build Your Skills.<br>
+            <span>Grow Your Mindset.</span>
+        </h1>
+
+        <p>
+            Explore learning packages designed to help you develop
+            your business knowledge and skills.
+        </p>
+
+        <a href="signup.html" class="btn">
+            Explore Packages →
+        </a>
+
+        <div class="powered">Co Powered By AP</div>
+
+    </section>
+
+    <section>
+        <h2 class="section-title">
+            Why <span>Business Mindset?</span>
+        </h2>
+
+        <p class="section-sub">
+            A learning experience focused on growth.
+        </p>
+
+        <div class="features">
+
+            <div class="feature">
+                <h3>📚 Learn</h3>
+                <p>
+                    Explore educational content and learning resources.
+                </p>
+            </div>
+
+            <div class="feature">
+                <h3>🎯 Improve</h3>
+                <p>
+                    Build knowledge through structured learning.
+                </p>
+            </div>
+
+            <div class="feature">
+                <h3>🚀 Grow</h3>
+                <p>
+                    Develop skills that support your personal goals.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+</body>
+</html>
