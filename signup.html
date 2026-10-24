@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080808">
+<title>Sign Up | Business Mindset</title>
+
+<style>
+:root{
+  --bg:#080808;
+  --panel:#121212;
+  --gold:#d9b45b;
+  --gold2:#f3d98b;
+  --text:#f5f5f5;
+  --muted:#aaa;
+  --line:#302817;
+  --danger:#ff8e8e;
+  --ok:#a9efb3;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  padding:28px 14px;
+  background:radial-gradient(ellipse at top,#201a0c 0,#080808 48%);
+  color:var(--text);
+  font:15px Arial,sans-serif;
+  min-height:100vh;
+}
+.wrap{max-width:520px;margin:0 auto}
+.brand{text-align:center;margin:4px 0 22px}
+.brand-mark{
+  display:inline-grid;
+  place-items:center;
+  width:56px;height:56px;
+  border:1px solid var(--gold);
+  border-radius:16px;
+  color:var(--gold2);
+  font-weight:800;font-size:21px;
+  box-shadow:0 0 24px #d9b45b16;
+}
+.brand h1{font-size:25px;margin:12px 0 5px}
+.brand p{color:var(--muted);margin:0}
+.card{
+  background:linear-gradient(160deg,#151515,#0e0e0e);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:23px;
+  box-shadow:0 20px 60px #0008;
+}
+.eyebrow{
+  font-size:11px;letter-spacing:2px;
+  color:var(--gold);text-transform:uppercase;
+  font-weight:700;
+}
+.card h2{margin:8px 0 7px;font-size:22px}
+.hint{
+  color:var(--muted);font-size:13px;
+  line-height:1.5;margin:0 0 20px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:13px;
+}
+.field{margin-bottom:14px}
+.field.full{grid-column:1/-1}
+label{
+  display:block;color:#dedede;
+  font-size:12px;margin:0 0 7px;
+}
+input,select{
+  width:100%;background:#090909;
+  border:1px solid #37312a;
+  border-radius:10px;color:#fff;
+  padding:13px 12px;outline:none;font-size:14px;
+}
+input:focus,select:focus{
+  border-color:var(--gold);
+  box-shadow:0 0 0 2px #d9b45b20;
+}
+select option{background:#101010}
+.checkbox{
+  display:flex;gap:9px;align-items:flex-start;
+  color:#bbb;font-size:12px;line-height:1.5;
+  margin:5px 0 16px;
+}
+.checkbox input{
+  width:16px;height:16px;margin:1px 0 0;
+  accent-color:var(--gold);flex-shrink:0;
+}
+.btn{
+  width:100%;border:0;border-radius:11px;
+  background:linear-gradient(120deg,#b58a2c,#f0d27b);
+  color:#171207;font-weight:800;
+  padding:14px 16px;font-size:15px;cursor:pointer;
+}
+.btn:disabled{opacity:.55;cursor:wait}
+.status{
+  display:none;margin-top:13px;padding:11px 12px;
+  border-radius:9px;font-size:13px;line-height:1.5;
+  background:#222;color:var(--muted);overflow-wrap:anywhere;
+}
+.status.show{display:block}
+.status.error{color:var(--danger);border:1px solid #5d2828}
+.status.success{color:var(--ok);border:1px solid #29482e}
+.foot{
+  text-align:center;color:#858585;font-size:11px;
+  line-height:1.6;margin:16px 10px 0;
+}
+.foot a{color:var(--gold2);text-decoration:none}
+@media(max-width:420px){
+  .grid{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
+  .card{padding:18px}
+}
+</style>
+</head>
+
+<body>
+<main class="wrap">
+
+  <header class="brand">
+    <div class="brand-mark">BM</div>
+    <h1>BUSINESS MINDSET</h1>
+    <p>Build your next opportunity.</p>
+  </header>
+
+  <section class="card">
+    <div class="eyebrow">Create your account</div>
+    <h2>Start your membership</h2>
+    <p class="hint">
+      Your Firebase account and Member ID are created first.
+      Your membership becomes active only after Razorpay confirms the payment.
+    </p>
+
+    <form id="signupForm">
+      <div class="grid">
+
+        <div class="field full">
+          <label for="name">Full name</label>
+          <input id="name" name="name" autocomplete="name"
+                 minlength="2" maxlength="100" required
+                 placeholder="Enter your full name">
+        </div>
+
+        <div class="field">
+          <label for="phone">Mobile number</label>
+          <input id="phone" name="phone" inputmode="numeric"
+                 autocomplete="tel-national" maxlength="10"
+                 pattern="[6-9][0-9]{9}" required
+                 placeholder="10-digit mobile">
+        </div>
+
+        <div class="field">
+          <label for="sponsorId">Sponsor Member ID (optional)</label>
+          <input id="sponsorId" name="sponsorId" maxlength="12"
+                 placeholder="BM0001">
+        </div>
+
+        <div class="field full">
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email"
+                 autocomplete="email" maxlength="254" required
+                 placeholder="you@example.com">
+        </div>
+
+        <div class="field full">
+          <label for="password">Password (minimum 8 characters)</label>
+          <input id="password" name="password" type="password"
+                 autocomplete="new-password" minlength="8"
+                 maxlength="128" required
+                 placeholder="Create a strong password">
+        </div>
+
+        <div class="field full">
+          <label for="packageName">Choose package</label>
+          <select id="packageName" name="packageName" required>
+            <option value="">Select a package</option>
+            <option value="E-Lite Package">E-Lite Package — ₹599</option>
+            <option value="Silver Package">Silver Package — ₹1,199</option>
+            <option value="Gold Package">Gold Package — ₹2,399</option>
+            <option value="Diamond Package">Diamond Package — ₹4,199</option>
+            <option value="Platinum Package">Platinum Package — ₹6,999</option>
+            <option value="Premium Pro Package">Premium Pro Package — ₹9,999</option>
+            <option value="Master Pro Package">Master Pro Package — ₹15,999</option>
+          </select>
+        </div>
+
+      </div>
+
+      <label class="checkbox">
+        <input id="terms" type="checkbox" required>
+        <span>
+          I agree to the website's terms and understand that membership
+          activates only after successful payment verification.
+        </span>
+      </label>
+
+      <button class="btn" id="submitBtn" type="submit">
+        CREATE ACCOUNT &amp; CONTINUE
+      </button>
+
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+    </form>
+  </section>
+
+  <p class="foot">
+    Secure account creation · Razorpay payment verification ·
+    Never share your password or payment credentials with anyone.
+  </p>
+
+</main>
+
+<script type="module">
+import {
+  initializeApp
+} from 'https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js';
+
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+  onAuthStateChanged,
+  signOut
+} from 'https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js';
+
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBMNQEUc7gF3XjduXe5w792thNwsIvE76A",
+  authDomain: "business-mindset-ac77c.firebaseapp.com",
+  projectId: "business-mindset-ac77c",
+  storageBucket: "business-mindset-ac77c.firebasestorage.app",
+  messagingSenderId: "885202475978",
+  appId: "1:885202475978:web:25dabcd326a26965724d33",
+  measurementId: "G-LG873JC1N4"
+};
+
+const BACKEND = 'https://business-mindset-backend.onrender.com';
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+const $ = id => document.getElementById(id);
+const form = $('signupForm');
+const button = $('submitBtn');
+const statusBox = $('status');
+
+let authUser = null;
+
+const authReady = new Promise(resolve => {
+  onAuthStateChanged(
+    auth,
+    user => {
+      authUser = user;
+      resolve(user);
+    },
+    () => resolve(null)
+  );
+});
+
+function showStatus(message, type = '') {
+  statusBox.textContent = message;
+  statusBox.className = 'status show' + (type ? ' ' + type : '');
+}
+
+async function postJSON(path, data, token) {
+  const response = await fetch(BACKEND + path, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      ...(token ? { Authorization: 'Bearer ' + token } : {})
+    },
+    body: JSON.stringify(data)
+  });
+
+  const result = await response.json().catch(() => ({}));
+
+  if (!response.ok || result.success === false) {
+    throw new Error(
+      result.message || 'Request failed (' + response.status + ').'
+    );
+  }
+
+  return result;
+}
+
+/* Handle the form before making any network requests. */
+form.addEventListener('submit', async event => {
+  event.preventDefault();
+
+  if (!form.reportValidity()) return;
+
+  button.disabled = true;
+
+  const name = $('name').value.trim();
+  const phone = $('phone').value.replace(/\D/g, '');
+  const sponsorId = $('sponsorId').value.trim().toUpperCase();
+  const email = $('email').value.trim().toLowerCase();
+  const password = $('password').value;
+  const packageName = $('packageName').value;
+
+  try {
+    showStatus('Checking your details…');
+
+    if (sponsorId && !/^BM\d{4,}$/.test(sponsorId)) {
+      throw new Error('Sponsor ID must look like BM0001.');
+    }
+
+    let user = auth.currentUser || await authReady;
+
+    if (user && user.email &&
+        user.email.toLowerCase() !== email) {
+      await signOut(auth);
+      user = null;
+    }
+
+    if (!user) {
+      showStatus('Creating your Firebase account…');
+
+      const credential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      user = credential.user;
+
+      await updateProfile(user, {
+        displayName: name
+      });
+    } else if (!user.displayName) {
+      await updateProfile(user, {
+        displayName: name
+      });
+    }
+
+    localStorage.setItem(
+      'bm_signup_details',
+      JSON.stringify({ name, phone, sponsorId })
+    );
+
+    localStorage.setItem('bm_selected_package', packageName);
+
+    showStatus('Reserving your Member ID…');
+
+    const token = await user.getIdToken(true);
+
+    const initialized = await postJSON(
+      '/api/signup/initialize',
+      { name, phone, sponsorId },
+      token
+    );
+
+    if (!initialized.memberId) {
+      throw new Error(
+        'Account exists, but the server did not return a Member ID. Please do not sign up again; check the backend.'
+      );
+    }
+
+    showStatus(
+      'Account created. Your Member ID is ' +
+      initialized.memberId +
+      '. Opening payment…',
+      'success'
+    );
+
+    $('password').value = '';
+
+    window.location.href = 'payment.html';
+
+  } catch (err) {
+    console.error('Signup failed:', err);
+
+    let message = err.message || 'Signup failed. Please retry.';
+
+    if (err.code === 'auth/email-already-in-use') {
+      message =
+        'This email already has a Firebase account. Please use the login page for that account.';
+    } else if (err.code === 'auth/weak-password') {
+      message = 'Choose a password with at least 8 characters.';
+    } else if (err.code === 'auth/invalid-email') {
+      message = 'Please enter a valid email address.';
+    } else if (
+      err instanceof TypeError &&
+      /fetch/i.test(err.message)
+    ) {
+      message =
+        'Cannot reach the backend. Check that Render is running and the website uses HTTPS.';
+    }
+
+    showStatus(message, 'error');
+
+  } finally {
+    button.disabled = false;
+  }
+});
+
+/* The form handler is registered before any API request. */
+async function loadPackages() {
+  try {
+    const response = await fetch(BACKEND + '/api/packages');
+    const data = await response.json();
+
+    if (response.ok && data.success &&
+        Array.isArray(data.packages)) {
+      const select = $('packageName');
+      const previous = select.value;
+
+      select.replaceChildren(
+        new Option('Select a package', '')
+      );
+
+      for (const item of data.packages) {
+        select.add(
+          new Option(
+            item.name + ' — ₹' +
+            Number(item.amount).toLocaleString('en-IN'),
+            item.name
+          )
+        );
+      }
+
+      if (previous) select.value = previous;
+    }
+  } catch (error) {
+    console.warn('Using the package options already in the page.', error);
+  }
+}
+
+loadPackages();
+</script>
+</body>
+</html>
