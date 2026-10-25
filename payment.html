@@ -3,105 +3,92 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#080808">
 <title>Payment | Business Mindset</title>
 
 <style>
 *{box-sizing:border-box}
 body{
-  margin:0;padding:24px 15px;
+  margin:0;padding:24px 15px;min-height:100vh;
   background:#080808;color:#fff;
-  font-family:Arial,sans-serif;
+  font-family:Arial,sans-serif
 }
-.container{max-width:480px;margin:30px auto}
-.card{
-  background:#111;border:1px solid #292929;
-  border-radius:18px;padding:24px;
+.container{
+  max-width:460px;margin:20px auto;padding:25px;
+  background:#111;border:1px solid #c5a04b;
+  border-radius:16px
 }
-.logo{
-  color:#e5bd55;text-align:center;
-  font-size:25px;font-weight:bold;margin-bottom:8px
-}
-.subtitle{text-align:center;color:#aaa;font-size:14px}
-h2{font-size:22px;text-align:center;margin:25px 0}
-label{display:block;color:#ccc;font-size:14px;margin:18px 0 8px}
+.logo{text-align:center;color:#e5c36a;font-size:24px;font-weight:bold}
+.subtitle{text-align:center;color:#aaa;margin:10px 0 25px}
+label{display:block;color:#e5c36a;margin:18px 0 8px}
 select{
-  width:100%;padding:14px;border-radius:9px;
-  background:#080808;color:#fff;
-  border:1px solid #444;font-size:15px
+  width:100%;padding:14px;background:#1b1b1b;
+  color:white;border:1px solid #444;border-radius:8px;
+  font-size:15px
 }
-.summary{
-  margin-top:20px;padding:16px;
-  background:#191919;border-radius:10px
-}
-.line{display:flex;justify-content:space-between;gap:12px;margin:8px 0}
-.amount{color:#f0ca65;font-size:23px;font-weight:bold}
+.summary{margin:20px 0;padding:18px;background:#1a1a1a;border-radius:10px}
+.small{color:#aaa;font-size:13px}
+.package{margin-top:8px;font-size:18px;font-weight:bold}
+.price{margin-top:12px;font-size:30px;color:#e5c36a;font-weight:bold}
 button{
-  width:100%;padding:15px;border:0;border-radius:9px;
-  background:#e5bd55;color:#080808;
-  font-size:16px;font-weight:bold;margin-top:20px
+  width:100%;padding:15px;border:0;border-radius:8px;
+  background:#e5c36a;color:#080808;font-size:16px;
+  font-weight:bold
 }
 button:disabled{opacity:.5}
-.status{
-  display:none;margin-top:18px;padding:12px;
-  border-radius:8px;background:#202020;
-  color:#eee;overflow-wrap:anywhere;font-size:14px
+#status{
+  display:none;margin-top:16px;padding:12px;
+  border:1px solid #444;border-radius:8px;
+  overflow-wrap:anywhere;font-size:13px;line-height:1.5
 }
-.note{font-size:12px;color:#999;line-height:1.6;margin-top:18px}
+#account{margin:15px 0;color:#aaa;font-size:13px;overflow-wrap:anywhere}
+.note{text-align:center;color:#888;font-size:12px;line-height:1.6;margin-top:18px}
 </style>
 </head>
 
 <body>
-<div class="container">
-  <div class="card">
-    <div class="logo">BUSINESS MINDSET</div>
-    <div class="subtitle">Secure Membership Payment</div>
+<main class="container">
+  <div class="logo">BUSINESS MINDSET</div>
+  <div class="subtitle">Secure Package Checkout</div>
 
-    <h2>Complete Your Membership</h2>
+  <div id="account">Checking account...</div>
 
-    <label for="package">Select your package</label>
-    <select id="package">
-      <option value="E-Lite Package">E-Lite Package - ₹599</option>
-      <option value="Silver Package">Silver Package - ₹1,199</option>
-      <option value="Gold Package">Gold Package - ₹2,399</option>
-      <option value="Diamond Package">Diamond Package - ₹4,199</option>
-      <option value="Platinum Package">Platinum Package - ₹6,999</option>
-      <option value="Premium Pro Package">Premium Pro Package - ₹9,999</option>
-      <option value="Master Pro Package">Master Pro Package - ₹15,999</option>
-    </select>
+  <label for="package">Choose Your Package</label>
+  <select id="package" disabled>
+    <option value="E-Lite">E-Lite Package — ₹599</option>
+    <option value="Silver">Silver Package — ₹1,199</option>
+    <option value="Gold">Gold Package — ₹2,399</option>
+    <option value="Diamond">Diamond Package — ₹4,199</option>
+    <option value="Platinum">Platinum Package — ₹6,999</option>
+    <option value="Premium Pro">Premium Pro Package — ₹9,999</option>
+    <option value="Master Pro">Master Pro Package — ₹15,999</option>
+  </select>
 
-    <div class="summary">
-      <div class="line">
-        <span>Selected package</span>
-        <span id="packageName">E-Lite Package</span>
-      </div>
-      <div class="line">
-        <span>Total payable</span>
-        <span class="amount" id="price">₹599</span>
-      </div>
-    </div>
-
-    <button id="payButton" type="button">Continue to Secure Payment</button>
-    <div id="status" class="status" role="status"></div>
-
-    <p class="note">
-      Payments are processed through Razorpay. Membership is activated
-      only after the server verifies successful payment. Do not pay again
-      if the payment status is uncertain; contact support first.
-    </p>
+  <div class="summary">
+    <div class="small">SELECTED PACKAGE</div>
+    <div class="package" id="packageName">E-Lite Package</div>
+    <div class="price" id="price">₹599</div>
   </div>
-</div>
+
+  <button id="payButton" disabled>Continue to Secure Payment</button>
+  <div id="status" role="status" aria-live="polite"></div>
+
+  <div class="note">
+    Payments are processed through Razorpay.
+    Account activation must be confirmed by the server.
+    Never share your OTP or payment credentials.
+  </div>
+</main>
 
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <script type="module">
-import { initializeApp } from
-  "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
-import {
-  getAuth,
-  onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
+import {initializeApp} from
+  "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {getAuth,onAuthStateChanged} from
+  "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBMNQEU7cG3FjduXe5w792thNwsIvE76A",
@@ -113,16 +100,17 @@ const firebaseConfig = {
   measurementId: "G-LG873JC1N4"
 };
 
-const BACKEND = "https://business-mindset-backend.onrender.com";
+const BACKEND =
+  "https://business-mindset-backend.onrender.com";
 
 const PACKAGES = {
-  "E-Lite Package": 599,
-  "Silver Package": 1199,
-  "Gold Package": 2399,
-  "Diamond Package": 4199,
-  "Platinum Package": 6999,
-  "Premium Pro Package": 9999,
-  "Master Pro Package": 15999
+  "E-Lite":599,
+  "Silver":1199,
+  "Gold":2399,
+  "Diamond":4199,
+  "Platinum":6999,
+  "Premium Pro":9999,
+  "Master Pro":15999
 };
 
 const app = initializeApp(firebaseConfig);
@@ -131,174 +119,204 @@ const auth = getAuth(app);
 const packageSelect = document.getElementById("package");
 const payButton = document.getElementById("payButton");
 const statusBox = document.getElementById("status");
+const accountBox = document.getElementById("account");
 
 let currentUser = null;
 let busy = false;
 
-function showStatus(message) {
+function showStatus(message){
   statusBox.style.display = "block";
   statusBox.textContent = message;
 }
 
-function updatePrice() {
-  const name = packageSelect.value;
-  document.getElementById("packageName").textContent = name;
-  document.getElementById("price").textContent =
-    "₹" + PACKAGES[name].toLocaleString("en-IN");
-}
-
-function setBusy(value) {
+function setBusy(value){
   busy = value;
-  payButton.disabled = value;
+  payButton.disabled = value || !currentUser;
+  packageSelect.disabled = value || !currentUser;
   payButton.textContent = value
     ? "Please wait..."
     : "Continue to Secure Payment";
 }
 
-packageSelect.addEventListener("change", updatePrice);
-
-const savedPackage = localStorage.getItem("bm_selected_package");
-if (savedPackage && Object.hasOwn(PACKAGES, savedPackage)) {
-  packageSelect.value = savedPackage;
+function updatePrice(){
+  const name = packageSelect.value;
+  document.getElementById("packageName").textContent =
+    name + " Package";
+  document.getElementById("price").textContent =
+    "₹" + PACKAGES[name].toLocaleString("en-IN");
 }
-updatePrice();
 
-onAuthStateChanged(auth, user => {
-  currentUser = user;
+async function apiPost(path, token, data){
+  let response;
 
-  if (!user) {
-    showStatus("Please sign in using your Business Mindset account.");
-    payButton.disabled = true;
-    return;
+  try{
+    response = await fetch(BACKEND + path,{
+      method:"POST",
+      mode:"cors",
+      headers:{
+        "Content-Type":"application/json",
+        "Authorization":"Bearer " + token
+      },
+      body:JSON.stringify(data)
+    });
+  }catch(error){
+    console.error("Network/CORS error:",error);
+    throw new Error(
+      "Backend connection failed. Check Render, CORS and Preview origin."
+    );
   }
 
-  payButton.disabled = false;
-  showStatus("Signed in as " + (user.email || "your account"));
-});
+  const result = await response.json().catch(()=>({}));
 
-async function apiPost(path, token, data) {
-  const response = await fetch(BACKEND + path, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": "Bearer " + token
-    },
-    body: JSON.stringify(data)
-  });
-
-  const result = await response.json().catch(() => ({}));
-
-  if (!response.ok || !result.success) {
-    throw new Error(result.message || "Request failed (" + response.status + ")");
+  if(!response.ok || !result.success){
+    throw new Error(
+      result.message || "Server error: HTTP " + response.status
+    );
   }
 
   return result;
 }
 
-payButton.addEventListener("click", async () => {
-  if (busy) return;
+packageSelect.addEventListener("change",updatePrice);
 
-  if (!currentUser) {
+try{
+  const saved = localStorage.getItem("bm_selected_package");
+  if(saved && Object.hasOwn(PACKAGES,saved)){
+    packageSelect.value = saved;
+  }
+}catch(error){
+  console.warn("Package preference unavailable");
+}
+updatePrice();
+
+onAuthStateChanged(auth,user=>{
+  currentUser = user;
+
+  if(!user){
+    accountBox.textContent = "Not signed in";
+    payButton.disabled = true;
+    packageSelect.disabled = true;
+    showStatus("Please sign in to your Business Mindset account.");
+    return;
+  }
+
+  accountBox.textContent =
+    "Signed in as " + (user.email || "your account");
+  payButton.disabled = false;
+  packageSelect.disabled = false;
+  showStatus("You are signed in. Select a package to continue.");
+});
+
+payButton.addEventListener("click",async()=>{
+  if(busy) return;
+
+  if(!currentUser){
     showStatus("Please sign in first.");
     return;
   }
 
-  if (!window.Razorpay) {
-    showStatus("Payment checkout did not load. Check your internet connection.");
+  if(!window.Razorpay){
+    showStatus("Razorpay checkout failed to load. Check your internet.");
     return;
   }
 
   const packageName = packageSelect.value;
 
-  if (!Object.hasOwn(PACKAGES, packageName)) {
+  if(!Object.hasOwn(PACKAGES,packageName)){
     showStatus("Please select a valid package.");
     return;
   }
 
   setBusy(true);
-  showStatus("Creating a secure payment order...");
+  showStatus("Creating secure payment order...");
 
-  try {
+  try{
     const token = await currentUser.getIdToken(true);
 
     const order = await apiPost(
       "/api/signup/create-order",
       token,
-      { packageName }
+      {packageName}
     );
 
-    if (!order.orderId || !order.keyId || !order.amount) {
-      throw new Error("The server returned incomplete order details.");
+    if(!order.orderId || !order.keyId || !order.amount){
+      throw new Error("Backend returned incomplete order details.");
     }
 
     const options = {
-      key: order.keyId,
-      amount: order.amount,
-      currency: order.currency || "INR",
-      name: "Business Mindset",
-      description: packageName,
-      order_id: order.orderId,
-      prefill: { email: currentUser.email || "" },
+      key:order.keyId,
+      amount:order.amount,
+      currency:order.currency || "INR",
+      name:"Business Mindset",
+      description:packageName + " Package",
+      order_id:order.orderId,
+      prefill:{email:currentUser.email || ""},
 
-      handler: async function (paymentResponse) {
+      handler:async function(paymentResponse){
         setBusy(true);
-        showStatus("Verifying payment securely. Please do not close this page.");
+        showStatus("Verifying payment with the server...");
 
-        try {
+        try{
           const freshToken = await currentUser.getIdToken(true);
 
-          const result = await apiPost(
+          const verification = await apiPost(
             "/api/signup/complete",
             freshToken,
-            paymentResponse
+            {
+              packageName,
+              razorpay_order_id:paymentResponse.razorpay_order_id,
+              razorpay_payment_id:paymentResponse.razorpay_payment_id,
+              razorpay_signature:paymentResponse.razorpay_signature
+            }
           );
 
           showStatus(
-            "Payment verified successfully. Membership ID: " +
-            (result.memberId || "assigned") +
-            ". Membership status is being updated."
+            verification.message ||
+            "Server response received. Check your account status."
           );
 
-          payButton.textContent = "Payment Verified";
-          payButton.disabled = true;
-        } catch (error) {
+          if(verification.activated === true){
+            window.location.href = "dashboard.html";
+          }
+        }catch(error){
+          console.error("Verification error:",error);
           showStatus(
-            "Payment may have succeeded, but verification is not confirmed. " +
-            "Do not pay again. Save your payment ID and contact support. " +
-            "Details: " + error.message
+            "Payment submitted but verification needs checking: " +
+            error.message +
+            ". Do not pay again until the transaction is checked."
           );
+        }finally{
           setBusy(false);
         }
       },
 
-      modal: {
-        ondismiss: function () {
+      modal:{
+        ondismiss:function(){
           setBusy(false);
-          showStatus("Checkout closed. No payment confirmation was received.");
+          showStatus("Checkout closed. Payment was not confirmed here.");
         }
       },
 
-      theme: { color: "#e5bd55" }
+      theme:{color:"#e5c36a"}
     };
 
-    const checkout = new Razorpay(options);
+    const checkout = new window.Razorpay(options);
 
-    checkout.on("payment.failed", function (response) {
-      setBusy(false);
+    checkout.on("payment.failed",event=>{
+      console.error("Razorpay failure:",event.error);
       showStatus(
-        "Payment failed or was not completed: " +
-        (response.error?.description || "Please check your payment status.")
+        "Payment failed: " +
+        (event.error.description || "Please try again.")
       );
+      setBusy(false);
     });
 
     checkout.open();
 
-  } catch (error) {
+  }catch(error){
+    console.error("Checkout error:",error);
+    showStatus(error.message || "Could not start checkout.");
     setBusy(false);
-    showStatus(
-      "Cannot start payment: " + error.message +
-      ". Check backend, login, and website hosting."
-    );
   }
 });
 </script>
