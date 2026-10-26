@@ -1,434 +1,389 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#080808">
-<title>Sign Up | Business Mindset</title>
+<meta name="theme-color" content="#090909">
+<title>Create Account | Business Mindset</title>
 
 <style>
 :root{
-  --bg:#080808;
-  --panel:#121212;
-  --gold:#d9b45b;
-  --gold2:#f3d98b;
-  --text:#f5f5f5;
-  --muted:#aaa;
-  --line:#302817;
-  --danger:#ff8e8e;
-  --ok:#a9efb3;
+  --bg:#080808;--card:#141414;--field:#202020;
+  --gold:#ffad19;--gold2:#f8ca52;
+  --text:#fff;--muted:#999;--border:#303030
 }
 *{box-sizing:border-box}
 body{
-  margin:0;
-  padding:28px 14px;
-  background:radial-gradient(ellipse at top,#201a0c 0,#080808 48%);
-  color:var(--text);
-  font:15px Arial,sans-serif;
-  min-height:100vh;
+  margin:0;background:radial-gradient(ellipse at 50% 0%,#211606,transparent 43%),var(--bg);
+  color:var(--text);font-family:Arial,Helvetica,sans-serif;min-height:100vh
 }
-.wrap{max-width:520px;margin:0 auto}
-.brand{text-align:center;margin:4px 0 22px}
-.brand-mark{
-  display:inline-grid;
-  place-items:center;
-  width:56px;height:56px;
-  border:1px solid var(--gold);
-  border-radius:16px;
-  color:var(--gold2);
-  font-weight:800;font-size:21px;
-  box-shadow:0 0 24px #d9b45b16;
+button,input,select{font:inherit}
+a{color:var(--gold);text-decoration:none}
+.header{
+  max-width:1120px;margin:auto;padding:22px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px
 }
-.brand h1{font-size:25px;margin:12px 0 5px}
-.brand p{color:var(--muted);margin:0}
-.card{
-  background:linear-gradient(160deg,#151515,#0e0e0e);
-  border:1px solid var(--line);
-  border-radius:20px;
-  padding:23px;
-  box-shadow:0 20px 60px #0008;
+.brand{display:flex;align-items:center;gap:12px}
+.brand-icon{
+  width:48px;height:48px;display:grid;place-items:center;
+  border-radius:15px;background:linear-gradient(135deg,var(--gold2),#d77c00);
+  color:#111;font-size:25px;font-weight:900
 }
-.eyebrow{
-  font-size:11px;letter-spacing:2px;
-  color:var(--gold);text-transform:uppercase;
-  font-weight:700;
+.brand-name{font-size:clamp(17px,4vw,25px);font-weight:900;letter-spacing:-.8px}
+.brand-tag{color:#b9b9b9;font-size:11px;letter-spacing:2px;margin-top:4px}
+.menu-btn{
+  border:1px solid var(--border);background:#151515;color:white;
+  padding:11px 15px;border-radius:12px;cursor:pointer;font-size:22px
 }
-.card h2{margin:8px 0 7px;font-size:22px}
-.hint{
-  color:var(--muted);font-size:13px;
-  line-height:1.5;margin:0 0 20px;
+.top-line{height:1px;background:linear-gradient(90deg,transparent,#95651d,transparent)}
+.container{width:min(100% - 28px,610px);margin:38px auto 65px}
+.intro{text-align:center;margin-bottom:28px}
+.logo-mark{width:250px;max-width:85%;margin:0 auto 25px}
+.logo-mark img{display:block;width:100%;height:auto;object-fit:contain}
+.eyebrow{color:var(--gold);letter-spacing:4px;font-size:12px;font-weight:800;text-transform:uppercase}
+h1{font-size:clamp(31px,7vw,45px);letter-spacing:-1.5px;line-height:1.12;margin:14px 0}
+.gold-text{
+  background:linear-gradient(90deg,#ffe29a,#ffad19,#f7d875);
+  -webkit-background-clip:text;background-clip:text;color:transparent
 }
-.grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:13px;
+.subtitle{color:var(--muted);font-size:15px;line-height:1.7;margin:0 auto;max-width:390px}
+.form-card{
+  background:linear-gradient(145deg,#171717,#101010);
+  border:1px solid #333;border-radius:25px;padding:clamp(20px,5vw,35px);
+  box-shadow:0 25px 80px #0008,0 0 35px #ffad1907
 }
-.field{margin-bottom:14px}
-.field.full{grid-column:1/-1}
-label{
-  display:block;color:#dedede;
-  font-size:12px;margin:0 0 7px;
-}
+.section-heading{font-size:12px;letter-spacing:2px;color:var(--gold);font-weight:800;margin:5px 0 22px}
+.field{margin-bottom:20px}
+label{display:block;color:#dedede;font-size:14px;font-weight:700;margin-bottom:10px}
 input,select{
-  width:100%;background:#090909;
-  border:1px solid #37312a;
-  border-radius:10px;color:#fff;
-  padding:13px 12px;outline:none;font-size:14px;
+  width:100%;min-height:55px;border:1px solid #3b3b3b;border-radius:14px;
+  padding:15px 16px;background:var(--field);color:white;outline:none
 }
-input:focus,select:focus{
-  border-color:var(--gold);
-  box-shadow:0 0 0 2px #d9b45b20;
+input::placeholder{color:#777}
+input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px #ffad1917}
+select option{background:#202020;color:white}
+.password-wrap{position:relative}
+.password-wrap input{padding-right:65px}
+.show-password{
+  position:absolute;right:8px;top:8px;min-height:39px;padding:8px 10px;
+  border:0;border-radius:9px;background:#303030;color:var(--gold2);
+  cursor:pointer;font-size:12px;font-weight:700
 }
-select option{background:#101010}
-.checkbox{
-  display:flex;gap:9px;align-items:flex-start;
-  color:#bbb;font-size:12px;line-height:1.5;
-  margin:5px 0 16px;
+.hint{font-size:12px;color:#888;line-height:1.6;margin-top:8px}
+.divider{
+  display:flex;align-items:center;gap:13px;color:#777;font-size:11px;
+  letter-spacing:2px;font-weight:800;margin:28px 0 17px
 }
-.checkbox input{
-  width:16px;height:16px;margin:1px 0 0;
-  accent-color:var(--gold);flex-shrink:0;
+.divider:before,.divider:after{content:"";height:1px;background:#333;flex:1}
+.method{
+  display:flex;align-items:center;gap:13px;padding:17px 15px;margin:11px 0;
+  border:1px solid #363636;border-radius:15px;background:#1b1b1b;cursor:pointer
 }
-.btn{
-  width:100%;border:0;border-radius:11px;
-  background:linear-gradient(120deg,#b58a2c,#f0d27b);
-  color:#171207;font-weight:800;
-  padding:14px 16px;font-size:15px;cursor:pointer;
+.method:has(input:checked){border-color:#bd841e;background:#241d10}
+.method input{width:20px;min-height:20px;height:20px;padding:0;accent-color:var(--gold);flex-shrink:0}
+.method-icon{font-size:23px}
+.method-title{font-weight:800;font-size:15px}
+.method-desc{font-size:12px;color:#929292;margin-top:5px}
+.terms{
+  display:flex;align-items:flex-start;gap:12px;padding:16px;background:#1b1b1b;
+  border:1px solid #333;border-radius:14px;margin:23px 0;color:#bcbcbc;
+  font-size:13px;line-height:1.7
 }
-.btn:disabled{opacity:.55;cursor:wait}
-.status{
-  display:none;margin-top:13px;padding:11px 12px;
-  border-radius:9px;font-size:13px;line-height:1.5;
-  background:#222;color:var(--muted);overflow-wrap:anywhere;
+.terms input{width:19px;min-height:19px;height:19px;margin-top:2px;padding:0;accent-color:var(--gold);flex-shrink:0}
+.terms label{font-weight:400;margin:0}
+.submit-btn{
+  width:100%;min-height:62px;border:0;border-radius:50px;
+  background:linear-gradient(100deg,#ffc247,#ff9d00);color:#111;
+  font-size:16px;font-weight:900;cursor:pointer;box-shadow:0 12px 35px #ffad1930
 }
+.submit-btn:disabled{opacity:.6;cursor:wait}
+.status{display:none;padding:13px;border-radius:12px;margin:15px 0;font-size:13px;line-height:1.6;overflow-wrap:anywhere}
 .status.show{display:block}
-.status.error{color:var(--danger);border:1px solid #5d2828}
-.status.success{color:var(--ok);border:1px solid #29482e}
-.foot{
-  text-align:center;color:#858585;font-size:11px;
-  line-height:1.6;margin:16px 10px 0;
-}
-.foot a{color:var(--gold2);text-decoration:none}
+.status.error{background:#321b1b;color:#ffb7b7;border:1px solid #653131}
+.status.info{background:#25200f;color:#ffdf91;border:1px solid #6c5220}
+.signin{text-align:center;color:#999;margin:24px 0 0;font-size:14px}
+.footer{border-top:1px solid #222;padding:28px 18px;text-align:center;color:#777;font-size:12px;line-height:1.9}
+.footer strong{color:var(--gold2)}
 @media(max-width:420px){
-  .grid{grid-template-columns:1fr}
-  .field.full{grid-column:auto}
-  .card{padding:18px}
+  .header{padding:17px 14px}.container{margin-top:27px}
+  .form-card{border-radius:20px}.submit-btn{font-size:15px}
 }
 </style>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 
 <body>
-<main class="wrap">
+<header class="header">
+  <div class="brand">
+    <div class="brand-icon">B</div>
+    <div>
+      <div class="brand-name">BUSINESS <span class="gold-text">MINDSET</span></div>
+      <div class="brand-tag">MINDSET FOR SUCCESS</div>
+    </div>
+  </div>
+  <button class="menu-btn" id="menuBtn" type="button" aria-label="Home">☰</button>
+</header>
 
-  <header class="brand">
-    <div class="brand-mark">BM</div>
-    <h1>BUSINESS MINDSET</h1>
-    <p>Build your next opportunity.</p>
-  </header>
+<div class="top-line"></div>
 
-  <section class="card">
-    <div class="eyebrow">Create your account</div>
-    <h2>Start your membership</h2>
-    <p class="hint">
-      Your Firebase account and Member ID are created first.
-      Your membership becomes active only after Razorpay confirms the payment.
-    </p>
-
-    <form id="signupForm">
-      <div class="grid">
-
-        <div class="field full">
-          <label for="name">Full name</label>
-          <input id="name" name="name" autocomplete="name"
-                 minlength="2" maxlength="100" required
-                 placeholder="Enter your full name">
-        </div>
-
-        <div class="field">
-          <label for="phone">Mobile number</label>
-          <input id="phone" name="phone" inputmode="numeric"
-                 autocomplete="tel-national" maxlength="10"
-                 pattern="[6-9][0-9]{9}" required
-                 placeholder="10-digit mobile">
-        </div>
-
-        <div class="field">
-          <label for="sponsorId">Sponsor Member ID (optional)</label>
-          <input id="sponsorId" name="sponsorId" maxlength="12"
-                 placeholder="BM0001">
-        </div>
-
-        <div class="field full">
-          <label for="email">Email address</label>
-          <input id="email" name="email" type="email"
-                 autocomplete="email" maxlength="254" required
-                 placeholder="you@example.com">
-        </div>
-
-        <div class="field full">
-          <label for="password">Password (minimum 8 characters)</label>
-          <input id="password" name="password" type="password"
-                 autocomplete="new-password" minlength="8"
-                 maxlength="128" required
-                 placeholder="Create a strong password">
-        </div>
-
-        <div class="field full">
-          <label for="packageName">Choose package</label>
-          <select id="packageName" name="packageName" required>
-            <option value="">Select a package</option>
-            <option value="E-Lite Package">E-Lite Package — ₹599</option>
-            <option value="Silver Package">Silver Package — ₹1,199</option>
-            <option value="Gold Package">Gold Package — ₹2,399</option>
-            <option value="Diamond Package">Diamond Package — ₹4,199</option>
-            <option value="Platinum Package">Platinum Package — ₹6,999</option>
-            <option value="Premium Pro Package">Premium Pro Package — ₹9,999</option>
-            <option value="Master Pro Package">Master Pro Package — ₹15,999</option>
-          </select>
-        </div>
-
-      </div>
-
-      <label class="checkbox">
-        <input id="terms" type="checkbox" required>
-        <span>
-          I agree to the website's terms and understand that membership
-          activates only after successful payment verification.
-        </span>
-      </label>
-
-      <button class="btn" id="submitBtn" type="submit">
-        CREATE ACCOUNT &amp; CONTINUE
-      </button>
-
-      <div id="status" class="status" role="status" aria-live="polite"></div>
-    </form>
+<main class="container">
+  <section class="intro">
+    <div class="logo-mark"><img src="logo.png" alt="Business Mindset Logo"></div>
+    <div class="eyebrow">New Account</div>
+    <h1>Create <span class="gold-text">Account</span></h1>
+    <p class="subtitle">Your journey starts here. Create your account and select your package.</p>
   </section>
 
-  <p class="foot">
-    Secure account creation · Razorpay payment verification ·
-    Never share your password or payment credentials with anyone.
-  </p>
+  <form class="form-card" id="signupForm">
+    <div class="section-heading">01 / Account Details</div>
 
+    <div class="field">
+      <label for="referral">Referral Code (optional)</label>
+      <input id="referral" name="referral" placeholder="Enter referral code" autocomplete="off">
+    </div>
+
+    <div class="field">
+      <label for="package">Select Package *</label>
+      <select id="package" name="package" required>
+        <option value="">-- Choose a package --</option>
+        <option value="E-Lite">E-Lite Package — ₹599</option>
+        <option value="Silver">Silver Package — ₹1,199</option>
+        <option value="Gold">Gold Package — ₹2,399</option>
+        <option value="Diamond">Diamond Package — ₹4,199</option>
+        <option value="Platinum">Platinum Package — ₹6,999</option>
+        <option value="Premium Pro">Premium Pro Package — ₹9,999</option>
+        <option value="Master Pro">Master Pro Package — ₹15,999</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="fullName">Full Name *</label>
+      <input id="fullName" name="fullName" placeholder="Enter your full name" autocomplete="name" maxlength="100" required>
+    </div>
+
+    <div class="field">
+      <label for="phone">Phone Number *</label>
+      <input id="phone" name="phone" type="tel" inputmode="numeric" placeholder="10-digit mobile number" autocomplete="tel" pattern="[6-9][0-9]{9}" maxlength="10" required>
+    </div>
+
+    <div class="field">
+      <label for="email">Email Address *</label>
+      <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" maxlength="254" required>
+    </div>
+
+    <div class="field">
+      <label for="password">Password *</label>
+      <div class="password-wrap">
+        <input id="password" name="password" type="password" placeholder="Create a strong password" autocomplete="new-password" minlength="8" required>
+        <button class="show-password" type="button" id="togglePassword">SHOW</button>
+      </div>
+      <div class="hint">Use at least 8 characters. Never share your password.</div>
+    </div>
+
+    <div class="terms">
+      <input id="agree" type="checkbox" required>
+      <label for="agree">I agree to the <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms &amp; Conditions</a>.</label>
+    </div>
+
+    <div class="divider">PAYMENT METHOD</div>
+
+    <label class="method">
+      <input type="radio" name="paymentMethod" value="razorpay" checked>
+      <span class="method-icon">💳</span>
+      <span><span class="method-title">Razorpay</span><span class="method-desc" style="display:block">Secure payment checkout</span></span>
+    </label>
+
+    <label class="method">
+      <input type="radio" name="paymentMethod" value="wallet">
+      <span class="method-icon">🪙</span>
+      <span><span class="method-title">Wallet</span><span class="method-desc" style="display:block">Not available until wallet integration is complete</span></span>
+    </label>
+
+    <div class="status" id="status" role="status" aria-live="polite"></div>
+    <button class="submit-btn" id="submitBtn" type="submit">CREATE ACCOUNT &amp; PAY →</button>
+    <p class="signin">Already have an account? <a href="login.html"><strong>Sign In</strong></a></p>
+  </form>
 </main>
 
+<footer class="footer">
+  <div style="font-size:16px;font-weight:900;color:#fff">BUSINESS <span class="gold-text">MINDSET</span></div>
+  <div>MINDSET FOR SUCCESS</div>
+  <div style="margin-top:16px">© <span id="year"></span> Business Mindset. All rights reserved.</div>
+  <div>Designed &amp; Developed by <strong>AP</strong></div>
+</footer>
+
 <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
 import {
-  initializeApp
-} from 'https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js';
+  getAuth, createUserWithEmailAndPassword, updateProfile
+} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
 
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  updateProfile,
-  onAuthStateChanged,
-  signOut
-} from 'https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js';
-
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyBMNQEUc7gF3XjduXe5w792thNwsIvE76A",
   authDomain: "business-mindset-ac77c.firebaseapp.com",
   projectId: "business-mindset-ac77c",
   storageBucket: "business-mindset-ac77c.firebasestorage.app",
   messagingSenderId: "885202475978",
-  appId: "1:885202475978:web:25dabcd326a26965724d33",
-  measurementId: "G-LG873JC1N4"
+  appId: "1:885202475978:web:25dabcd326a26965724d33"
 };
 
-const BACKEND = 'https://business-mindset-backend.onrender.com';
-
+const API = "https://business-mindset-backend-v2.onrender.com";
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-const $ = id => document.getElementById(id);
-const form = $('signupForm');
-const button = $('submitBtn');
-const statusBox = $('status');
+const prices = {
+  "E-Lite":599, "Silver":1199, "Gold":2399,
+  "Diamond":4199, "Platinum":6999,
+  "Premium Pro":9999, "Master Pro":15999
+};
 
-let authUser = null;
+const form = document.getElementById("signupForm");
+const statusBox = document.getElementById("status");
+const submitBtn = document.getElementById("submitBtn");
 
-const authReady = new Promise(resolve => {
-  onAuthStateChanged(
-    auth,
-    user => {
-      authUser = user;
-      resolve(user);
-    },
-    () => resolve(null)
-  );
-});
+document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("menuBtn").onclick = () => location.href = "index.html";
 
-function showStatus(message, type = '') {
+document.getElementById("togglePassword").onclick = () => {
+  const p = document.getElementById("password");
+  p.type = p.type === "password" ? "text" : "password";
+  document.getElementById("togglePassword").textContent =
+    p.type === "password" ? "SHOW" : "HIDE";
+};
+
+function showStatus(message, type = "info") {
   statusBox.textContent = message;
-  statusBox.className = 'status show' + (type ? ' ' + type : '');
+  statusBox.className = "status show " + type;
 }
 
-async function postJSON(path, data, token) {
-  const response = await fetch(BACKEND + path, {
-    method: 'POST',
+async function apiPost(path, token, body = {}) {
+  const response = await fetch(API + path, {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
-      ...(token ? { Authorization: 'Bearer ' + token } : {})
+      "Content-Type": "application/json",
+      "Authorization": "Bearer " + token
     },
-    body: JSON.stringify(data)
+    body: JSON.stringify(body)
   });
 
-  const result = await response.json().catch(() => ({}));
-
-  if (!response.ok || result.success === false) {
-    throw new Error(
-      result.message || 'Request failed (' + response.status + ').'
-    );
-  }
-
-  return result;
+  const data = await response.json();
+  if (!response.ok) throw new Error(data.error || "Server request failed.");
+  return data;
 }
 
-/* Handle the form before making any network requests. */
-form.addEventListener('submit', async event => {
+form.addEventListener("submit", async (event) => {
   event.preventDefault();
-
   if (!form.reportValidity()) return;
 
-  button.disabled = true;
+  if (Object.values(firebaseConfig).some(v => v.startsWith("PASTE_"))) {
+    showStatus("First add the real Firebase Web Config from Firebase Console.", "error");
+    return;
+  }
 
-  const name = $('name').value.trim();
-  const phone = $('phone').value.replace(/\D/g, '');
-  const sponsorId = $('sponsorId').value.trim().toUpperCase();
-  const email = $('email').value.trim().toLowerCase();
-  const password = $('password').value;
-  const packageName = $('packageName').value;
+  const packageName = document.getElementById("package").value;
+  const fullName = document.getElementById("fullName").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+  const referral = document.getElementById("referral").value.trim();
+  const method = document.querySelector('input[name="paymentMethod"]:checked')?.value;
 
+  if (!prices[packageName]) {
+    showStatus("Please select a valid package.", "error");
+    return;
+  }
+
+  if (method === "wallet") {
+    showStatus("Wallet is not integrated yet. Select Razorpay.", "error");
+    return;
+  }
+
+  if (!window.Razorpay) {
+    showStatus("Razorpay Checkout could not load. Check your internet connection.", "error");
+    return;
+  }
+
+  submitBtn.disabled = true;
+
+  let userCredential;
   try {
-    showStatus('Checking your details…');
+    showStatus("Creating your Firebase account...", "info");
 
-    if (sponsorId && !/^BM\d{4,}$/.test(sponsorId)) {
-      throw new Error('Sponsor ID must look like BM0001.');
+    userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    await updateProfile(userCredential.user, { displayName: fullName });
+
+    const token = await userCredential.user.getIdToken();
+
+    const member = await apiPost("/api/member/initialize", token, {
+      fullName, phone, referral
+    });
+
+    showStatus("Account created. Member ID: " + member.memberId + ". Preparing order...", "info");
+
+    const order = await apiPost("/api/payment/create-order", token, {
+      packageName
+    });
+
+    const checkout = new window.Razorpay({
+      key: order.keyId,
+      order_id: order.orderId,
+      amount: order.amount,
+      currency: order.currency,
+      name: "Business Mindset",
+      description: packageName + " Package",
+      prefill: { name: fullName, email, contact: phone },
+      notes: { referralCode: referral },
+      theme: { color: "#ffad19" },
+
+      handler: async function(payment) {
+        try {
+          showStatus("Verifying payment...", "info");
+          const freshToken = await userCredential.user.getIdToken(true);
+
+          await apiPost("/api/payment/verify", freshToken, payment);
+
+          showStatus("Payment verified! Membership activated.", "info");
+          setTimeout(() => location.href = "dashboard.html", 1500);
+        } catch (error) {
+          console.error(error);
+          showStatus("Payment status could not be confirmed. Do not pay again yet; check your payment status.", "error");
+          submitBtn.disabled = false;
+        }
+      },
+
+      modal: {
+        ondismiss: function() {
+          showStatus("Checkout closed. Your Firebase account may already exist. Sign in to continue.", "info");
+          submitBtn.disabled = false;
+        }
+      }
+    });
+
+    checkout.on("payment.failed", function() {
+      showStatus("Payment failed. Check the payment status before retrying.", "error");
+      submitBtn.disabled = false;
+    });
+
+    checkout.open();
+
+  } catch (error) {
+    console.error(error);
+    let message = error.message || "Signup could not be completed.";
+
+    if (error.code === "auth/email-already-in-use") {
+      message = "This email already has an account. Please sign in.";
+    } else if (error.code === "auth/operation-not-allowed") {
+      message = "Enable Email/Password in Firebase Authentication sign-in providers.";
+    } else if (error.code === "auth/weak-password") {
+      message = "Please choose a stronger password.";
     }
 
-    let user = auth.currentUser || await authReady;
-
-    if (user && user.email &&
-        user.email.toLowerCase() !== email) {
-      await signOut(auth);
-      user = null;
-    }
-
-    if (!user) {
-      showStatus('Creating your Firebase account…');
-
-      const credential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-
-      user = credential.user;
-
-      await updateProfile(user, {
-        displayName: name
-      });
-    } else if (!user.displayName) {
-      await updateProfile(user, {
-        displayName: name
-      });
-    }
-
-    localStorage.setItem(
-      'bm_signup_details',
-      JSON.stringify({ name, phone, sponsorId })
-    );
-
-    localStorage.setItem('bm_selected_package', packageName);
-
-    showStatus('Reserving your Member ID…');
-
-    const token = await user.getIdToken(true);
-
-    const initialized = await postJSON(
-      '/api/signup/initialize',
-      { name, phone, sponsorId },
-      token
-    );
-
-    if (!initialized.memberId) {
-      throw new Error(
-        'Account exists, but the server did not return a Member ID. Please do not sign up again; check the backend.'
-      );
-    }
-
-    showStatus(
-      'Account created. Your Member ID is ' +
-      initialized.memberId +
-      '. Opening payment…',
-      'success'
-    );
-
-    $('password').value = '';
-
-    window.location.href = 'payment.html';
-
-  } catch (err) {
-    console.error('Signup failed:', err);
-
-    let message = err.message || 'Signup failed. Please retry.';
-
-    if (err.code === 'auth/email-already-in-use') {
-      message =
-        'This email already has a Firebase account. Please use the login page for that account.';
-    } else if (err.code === 'auth/weak-password') {
-      message = 'Choose a password with at least 8 characters.';
-    } else if (err.code === 'auth/invalid-email') {
-      message = 'Please enter a valid email address.';
-    } else if (
-      err instanceof TypeError &&
-      /fetch/i.test(err.message)
-    ) {
-      message =
-        'Cannot reach the backend. Check that Render is running and the website uses HTTPS.';
-    }
-
-    showStatus(message, 'error');
-
-  } finally {
-    button.disabled = false;
+    showStatus(message, "error");
+    submitBtn.disabled = false;
   }
 });
-
-/* The form handler is registered before any API request. */
-async function loadPackages() {
-  try {
-    const response = await fetch(BACKEND + '/api/packages');
-    const data = await response.json();
-
-    if (response.ok && data.success &&
-        Array.isArray(data.packages)) {
-      const select = $('packageName');
-      const previous = select.value;
-
-      select.replaceChildren(
-        new Option('Select a package', '')
-      );
-
-      for (const item of data.packages) {
-        select.add(
-          new Option(
-            item.name + ' — ₹' +
-            Number(item.amount).toLocaleString('en-IN'),
-            item.name
-          )
-        );
-      }
-
-      if (previous) select.value = previous;
-    }
-  } catch (error) {
-    console.warn('Using the package options already in the page.', error);
-  }
-}
-
-loadPackages();
 </script>
 </body>
 </html>
